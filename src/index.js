@@ -6,6 +6,7 @@ import './styles/styles.scss'
 
 import Navbar from './components/Navbar/Navbar';
 import ItemsListContainer from './components/ItemsListContainer/ItemsListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,7 @@ root.render(
       <Routes>
         <Route exact path='/' element={<ItemsListContainer />} />
         <Route exact path='/category/:categoryID' element={<ItemsListContainer />} />
-        <Route exact path='/item/:itemID' />
+        <Route exact path='/item/:itemID' element={<ItemDetailContainer />} />
         <Route exact path='/cart' />
       </Routes>
     </BrowserRouter>

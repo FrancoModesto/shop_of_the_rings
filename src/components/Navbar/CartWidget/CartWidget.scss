@@ -1,0 +1,36 @@
+@import "/src/styles/styles.scss";
+
+.cartWidget {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    background-color: rgba($color: $myBlack, $alpha: 0.5);
+    padding: 0.5em 1em 0.5em 1em;
+    border-radius: 25px;
+    border: 2px solid $myGold;
+    color: $myWhite;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    .cartNumber {
+        padding-top: 0.2em; //Font-fix.
+        font-size: 1.2rem;
+    }
+
+    .cartLogo {
+        width: 2.25em;
+        transition: all 0.3s ease;
+    }
+
+    &:hover {
+        background-color: $myGold;
+        color: $myBrown;
+
+        & .cartLogo {
+            filter: brightness(0) saturate(100%) invert(11%) sepia(5%) saturate(3538%) hue-rotate(314deg)
+                brightness(102%) contrast(100%);
+        }
+    }
+}

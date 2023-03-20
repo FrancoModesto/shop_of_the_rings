@@ -1,0 +1,13 @@
+@import "/src/styles/styles.scss";
+
+.itemsListContainer {
+    margin-top: 4em;
+
+    h2 {
+        cursor: default;
+
+        text-align: center;
+        font-size: 3rem;
+        color: $myGold;
+    }
+}

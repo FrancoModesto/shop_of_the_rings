@@ -1,6 +1,98 @@
-@import "../../styles/styles.scss";
+@import "/src/styles/styles.scss";
 
 .navbar {
-    height: 4em;
-    background-color: $myWhite;
+    position: sticky;
+    height: 6em;
+
+    display: flex;
+    align-items: center;
+
+    background-color: $myBrown;
+    color: $myWhite;
+
+    .categories {
+        list-style-type: none;
+        width: 35%;
+        padding: 0 0.75em 0 0.75em;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 20%;
+        row-gap: 1em;
+
+        li {
+            padding-top: 0.2em; //Font-fix.
+            font-size: 1.2rem;
+
+            a {
+                position: relative;
+
+                text-decoration: none;
+                color: $myWhite;
+                padding: 0 5px 0 5px;
+
+                transition: all 0.3s ease;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -3px;
+
+                    background-color: $myWhite;
+                    height: 2px;
+                    width: 0;
+
+                    transition: all 0.3s ease;
+                }
+
+                &:hover {
+                    color: $myGold;
+                }
+
+                &:hover:after {
+                    background-color: $myGold;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .logo {
+        width: 30%;
+
+        display: flex;
+        justify-content: center;
+
+        border-left: 2px solid $myGold;
+        border-right: 2px solid $myGold;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: all 0.3s ease;
+
+            img {
+                width: 6em;
+            }
+
+            &:hover {
+                transform: scale(0.95);
+            }
+        }
+    }
+
+    .cartLabel {
+        width: 35%;
+
+        display: flex;
+        justify-content: center;
+
+        a {
+            text-decoration: none;
+        }
+    }
 }

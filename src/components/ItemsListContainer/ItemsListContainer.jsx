@@ -12,12 +12,17 @@ const ItemsListContainer = () => {
     const { categoryID } = useParams()
     const [items, setItems] = useState()
 
+    function ordenarPorPrecio(a, b) {
+        return ((a.price > b.price) ? 1 : -1)
+    }
+
     function obtenerDocs(want) {
         getDocs(want).then((snapshot) => {
             if (snapshot === 0) {
                 console.log('No items found in data base.')
             } else {
-                setItems(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+                const rawItems = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+                setItems(rawItems.sort(ordenarPorPrecio))
             }
         })
     }
@@ -45,7 +50,6 @@ const ItemsListContainer = () => {
         <div className='itemsListContainer'>
             {categoryID ? <h2>{categoryID === 'rings' ? 'Anillos' : 'Otros'}</h2> : <h2>Productos de Tierra Media</h2>}
             {items ? <ItemsList items={items} /> : <Loader />}
-
         </div>
     )
 }

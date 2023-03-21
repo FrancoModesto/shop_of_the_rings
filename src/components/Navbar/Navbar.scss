@@ -1,13 +1,17 @@
 @import "/src/styles/styles.scss";
 
 .navbar {
+    z-index: 1;
     position: sticky;
+    top: 0;
+    left: 0;
     height: 6em;
 
     display: flex;
     align-items: center;
 
-    background-color: $myBrown;
+    background-color: rgba($myBrown, 0.95);
+    border-bottom: 2px solid $myGold;
     color: $myWhite;
 
     .categories {
@@ -55,6 +59,15 @@
                     background-color: $myGold;
                     width: 100%;
                 }
+
+                &.active {
+                    color: $myGold;
+
+                    &:after {
+                        background-color: $myGold;
+                        width: 100%;
+                    }
+                }
             }
         }
     }
@@ -90,9 +103,23 @@
 
         display: flex;
         justify-content: center;
+    }
+}
 
-        a {
-            text-decoration: none;
+@media screen and (max-width: 500px) {
+    .navbar {
+        .categories {
+            width: 50%;
+        }
+
+        .logo {
+            width: 50%;
+            border-right: none;
+        }
+
+        .cartLabel {
+            width: 0;
+            position: fixed;
         }
     }
 }

@@ -4,6 +4,9 @@ import { doc, getDoc, getFirestore } from 'firebase/firestore'
 
 import './ItemDetailContainer.scss'
 
+import ItemDetail from './ItemDetail/ItemDetail'
+import Loader from '../Loader/Loader'
+
 const ItemDetailContainer = () => {
 
     const { itemID } = useParams()
@@ -25,11 +28,9 @@ const ItemDetailContainer = () => {
 
     }, [itemID])
 
-    console.log(item)
-
     return (
         <div className='itemDetailContainer'>
-            {item ? 'ItemDetail' : 'Loader'}
+            {item ? <ItemDetail item={item} /> : <Loader />}
         </div>
     )
 }

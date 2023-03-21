@@ -8,16 +8,15 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     line-height: 1;
+    font-weight: 400;
 }
 
 body {
+    background-color: $myBlack;
     overflow-x: hidden;
 
     font-size: 16px;
     font-family: $myFont;
-    font-weight: 400;
-
-    background-color: $myBlack;
     color: $myWhite;
 }
 

@@ -3,11 +3,18 @@
 .itemsListContainer {
     margin-top: 4em;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     h2 {
         cursor: default;
+        margin-bottom: 0.75em;
+        padding: 0 0.25em 0 0.25em;
 
         text-align: center;
-        font-size: 3rem;
+        font-family: $myTitleFont;
+        font-size: 4rem;
         color: $myGold;
     }
 }

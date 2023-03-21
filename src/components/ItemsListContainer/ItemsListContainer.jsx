@@ -4,6 +4,9 @@ import { collection, getDocs, getFirestore, query, where } from 'firebase/firest
 
 import './ItemsListContainer.scss'
 
+import ItemsList from './ItemsList/ItemsList'
+import Loader from '../Loader/Loader'
+
 const ItemsListContainer = () => {
 
     const { categoryID } = useParams()
@@ -38,12 +41,11 @@ const ItemsListContainer = () => {
 
     }, [categoryID])
 
-    console.log(items)
-
     return (
         <div className='itemsListContainer'>
             {categoryID ? <h2>{categoryID === 'rings' ? 'Anillos' : 'Otros'}</h2> : <h2>Productos de Tierra Media</h2>}
-            {items ? 'ItemsList' : 'Loader'}
+            {items ? <ItemsList items={items} /> : <Loader />}
+
         </div>
     )
 }

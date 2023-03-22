@@ -51,22 +51,31 @@
             color: $myGold;
         }
 
-        .buy-btn {
-            cursor: pointer;
-            text-align: center;
-            color: $myWhite;
-            font-size: 1.2rem;
+        .itemBtns {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5em;
 
-            background-color: $myBrown;
-            border: 2px solid $myGold;
-            border-radius: 10px;
-            padding: 0.45em 0.5em 0.25em 0.5em;
+            .buy-btn {
+                cursor: pointer;
+                user-select: none;
 
-            transition: all 0.3s ease;
+                text-align: center;
+                color: $myWhite;
+                font-size: 1.2rem;
 
-            &:hover {
-                background-color: $myGold;
-                color: $myBrown;
+                background-color: $myBrown;
+                border: 2px solid $myGold;
+                border-radius: 10px;
+                padding: 0.45em 0.5em 0.25em 0.5em; //With Font-fix.
+
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: $myGold;
+                    color: $myBrown;
+                }
             }
         }
     }

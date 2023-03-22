@@ -7,16 +7,16 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+
+    font-size: 16px;
     line-height: 1;
+    font-family: $myFont;
     font-weight: 400;
 }
 
 body {
-    background-color: $myBlack;
     overflow-x: hidden;
-
-    font-size: 16px;
-    font-family: $myFont;
+    background-color: $myBlack;
     color: $myWhite;
 }
 

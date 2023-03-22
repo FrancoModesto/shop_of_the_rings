@@ -1,6 +1,8 @@
 @import "/src/styles/styles.scss";
 
 .navbar {
+    user-select: none;
+
     z-index: 1;
     position: sticky;
     top: 0;
@@ -26,15 +28,15 @@
         row-gap: 1em;
 
         li {
-            padding-top: 0.2em; //Font-fix.
-            font-size: 1.2rem;
-
             a {
                 position: relative;
 
-                text-decoration: none;
-                color: $myWhite;
+                padding-top: 0.2em; //Font-fix.
                 padding: 0 5px 0 5px;
+
+                text-decoration: none;
+                font-size: 1.2rem;
+                color: $myWhite;
 
                 transition: all 0.3s ease;
 

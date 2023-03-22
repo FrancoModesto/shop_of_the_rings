@@ -1,0 +1,75 @@
+@import "/src/styles/styles.scss";
+
+//This hides arrows from input number.
+// Chrome, Safari, Edge, Opera
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+// Firefox
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: none;
+}
+
+.quantitySelector {
+    width: 11em;
+    height: 2em;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    border: 2px solid $myGold;
+    border-radius: 10px;
+
+    .quantity-btn {
+        cursor: pointer;
+        user-select: none;
+
+        width: 30%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding-top: 0.14em; //Font-fix.
+        font-size: 2rem;
+
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: $myGold;
+            color: $myBrown;
+        }
+    }
+
+    input {
+        width: 70%;
+        height: 100%;
+
+        padding-top: 0.2em; //Font-fix.
+        text-align: center;
+        font-size: 1.1rem;
+        color: $myBrown;
+
+        background-color: $myWhite;
+        box-shadow: none;
+        border: none;
+        outline: none;
+
+        &:hover {
+            box-shadow: none;
+            border: none;
+            outline: none;
+        }
+
+        &:focus {
+            box-shadow: none;
+            border: none;
+            outline: none;
+        }
+    }
+}

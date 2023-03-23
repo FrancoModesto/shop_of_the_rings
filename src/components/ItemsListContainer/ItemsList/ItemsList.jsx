@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 import './ItemsList.scss'
 
-const ItemsList = (props) => {
+const ItemsList = ({ items }) => {
 
     return (
         <ul className='itemsList'>
             {
-                props.items.map(item => (
+                items.map(item => (
                     <li key={item.id} className='item'>
                         <div className='item-image'><img src={item.image} alt={item.name} /></div>
                         <div className='item-info'>

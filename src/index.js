@@ -35,7 +35,7 @@ root.render(
         <> {/* Toastify Container */}
           <ToastContainer
             position="bottom-left"
-            autoClose={3000}
+            autoClose={2000}
             limit={5}
             hideProgressBar
             newestOnTop

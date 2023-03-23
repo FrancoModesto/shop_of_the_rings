@@ -5,9 +5,7 @@ import './ItemDetail.scss'
 import CartContext from '../../../contexts/CartContext';
 import QuantitySelector from '../../QuantitySelector/QuantitySelector'
 
-const ItemDetail = (props) => {
-
-    const item = props.item
+const ItemDetail = ({ item }) => {
 
     let quantity = 0
     function handleQuantityChange(childQuantity) {

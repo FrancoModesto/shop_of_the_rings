@@ -7,5 +7,5 @@
 - Proyecto hecho en el editor de Visual Studio.
 - Se utilizó además: Node.js y Toastify.
 
-## Link al Sitio Web (hosteado en ?)
-- ?
+## Link al Sitio Web (hosteado en Vercel)
+- https://shop-of-the-rings.vercel.app

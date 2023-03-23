@@ -4,11 +4,10 @@ import './QuantitySelector.scss'
 
 import CartContext from '../../contexts/CartContext'
 
-const QuantitySelector = (props) => {
+const QuantitySelector = ({ stock, itemId, handleQuantityChange }) => {
 
     const { oneItemQuantity } = useContext(CartContext)
-    const stock = props.stock
-    let actualStock = stock - oneItemQuantity(props.itemId)
+    let actualStock = stock - oneItemQuantity(itemId)
 
     useEffect(() => {
         setQuantity(0)
@@ -17,7 +16,7 @@ const QuantitySelector = (props) => {
     const [quantity, setQuantity] = useState(0)
 
     useEffect(() => {
-        props.handleQuantityChange(quantity)
+        handleQuantityChange(quantity)
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [quantity])
 

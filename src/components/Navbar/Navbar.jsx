@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-import CartWidget from './CartWidget/CartWidget'
-
 import './Navbar.scss'
+
+import CartWidget from './CartWidget/CartWidget'
 
 const Navbar = () => {
     return (

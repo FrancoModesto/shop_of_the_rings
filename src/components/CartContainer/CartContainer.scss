@@ -1,0 +1,9 @@
+@import "/src/styles/styles.scss";
+
+.cartContainer {
+    margin: 4em 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

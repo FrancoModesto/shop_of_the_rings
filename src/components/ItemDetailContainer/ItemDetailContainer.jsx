@@ -10,6 +10,7 @@ import Loader from '../Loader/Loader'
 const ItemDetailContainer = () => {
 
     const { itemID } = useParams()
+
     const [item, setItem] = useState()
 
     useEffect(() => {

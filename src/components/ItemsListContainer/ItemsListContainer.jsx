@@ -10,9 +10,10 @@ import Loader from '../Loader/Loader'
 const ItemsListContainer = () => {
 
     const { categoryID } = useParams()
+
     const [items, setItems] = useState()
 
-    function ordenarPorPrecio(a, b) {
+    function sortByPrice(a, b) {
         return ((a.price > b.price) ? 1 : -1)
     }
 
@@ -22,7 +23,7 @@ const ItemsListContainer = () => {
                 console.log('No items found in data base.')
             } else {
                 const rawItems = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-                setItems(rawItems.sort(ordenarPorPrecio))
+                setItems(rawItems.sort(sortByPrice))
             }
         })
     }
@@ -36,14 +37,13 @@ const ItemsListContainer = () => {
                 collection(db, 'items'),
                 where('category', '==', categoryID)
             )
-
             obtenerDocs(q)
 
         } else {
             const ref = collection(db, 'items')
             obtenerDocs(ref)
         }
-
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [categoryID])
 
     return (

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import './ItemDetail.scss'
 
-import CartContext from '../../Context/CartContext';
+import CartContext from '../../../contexts/CartContext';
 import QuantitySelector from '../../QuantitySelector/QuantitySelector'
 
 const ItemDetail = (props) => {

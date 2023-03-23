@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import './CartWidget.scss'
 
-import CartContext from '../../Context/CartContext'
+import CartContext from '../../../contexts/CartContext'
 
 const CartWidget = () => {
 

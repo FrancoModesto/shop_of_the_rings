@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 import './styles/styles.scss'
 
 import { CartProvider } from './contexts/CartContext';
@@ -30,7 +32,22 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <CartProvider>
-        <Navbar /> {/* Navbar se pone afuera del Routing para que aparezca en todas las rutas */}
+        <> {/* Toastify Container */}
+          <ToastContainer
+            position="bottom-left"
+            autoClose={3000}
+            limit={5}
+            hideProgressBar
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss={false}
+            draggable
+            pauseOnHover={false}
+            theme="colored"
+          />
+        </>
+        <Navbar />
         <Routes>
           <Route exact path='/' element={<ItemsListContainer />} />
           <Route exact path='/category/:categoryID' element={<ItemsListContainer />} />

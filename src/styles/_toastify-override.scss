@@ -1,0 +1,18 @@
+.Toastify__toast-body {
+    display: flex;
+    gap: 1em;
+
+    :nth-child(2) {
+        padding-top: 0.2em;
+    }
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--default {
+    color: $myBrown;
+    background-color: $myGold;
+    border-radius: 10px;
+}
+
+.Toastify__close-button {
+    display: none;
+}

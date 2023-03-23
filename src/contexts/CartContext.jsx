@@ -1,12 +1,32 @@
 import React, { createContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const CartContext = createContext()
+
+const addedNotify = () => {
+    toast('AGREGADO AL CARRITO', {
+        icon: () => <img src="/assets/sum-icon.svg" alt="" />
+    })
+}
+
+const removedNotify = () => {
+    toast('ELIMINADO DEL CARRITO', {
+        icon: () => <img src="/assets/sub-icon.svg" alt="" />
+    })
+}
+
+const clearedNotify = () => {
+    toast('CARRITO VACIADO', {
+        icon: () => <img src="/assets/x-icon.svg" alt="" />
+    })
+}
 
 const CartProvider = (props) => {
     const [cartItems, setCartItems] = useState([])
 
     function clearCart() {
         setCartItems([])
+        clearedNotify()
     }
 
     function isInCart(id) {
@@ -16,6 +36,7 @@ const CartProvider = (props) => {
     function removeItem(id) {
         const newCartItems = cartItems.filter(cartItem => cartItem.id !== id)
         setCartItems(newCartItems)
+        removedNotify()
     }
 
     function addItem(item, quantity) {
@@ -30,6 +51,7 @@ const CartProvider = (props) => {
             } else {
                 setCartItems([...cartItems, { ...item, quantity: quantity }])
             }
+            addedNotify()
         }
     }
 

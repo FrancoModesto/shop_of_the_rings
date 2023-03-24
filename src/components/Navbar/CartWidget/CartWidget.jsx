@@ -17,7 +17,7 @@ const CartWidget = () => {
     return (
         <NavLink to={'/cart'} className='cartWidget'>
             <div className='cartNumber'>{cartNumber}</div>
-            <img className='cartLogo' src="./assets/cart.svg" alt="Cart Logo" />
+            <img className='cartLogo' src="/assets/cart.svg" alt="Cart Logo" />
         </NavLink>
     )
 }

@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify'
 
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'
 import './styles/styles.scss'
 
-import { CartProvider } from './contexts/CartContext';
+import { CartProvider } from './contexts/CartContext'
 import Navbar from './components/Navbar/Navbar'
 import ItemsListContainer from './components/ItemsListContainer/ItemsListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
@@ -27,7 +27,7 @@ const firebaseConfig = {
 //eslint-disable-next-line no-unused-vars
 const app = initializeApp(firebaseConfig)
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <BrowserRouter>

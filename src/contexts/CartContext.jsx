@@ -1,5 +1,5 @@
-import React, { createContext, useState } from 'react';
-import { toast } from 'react-toastify';
+import React, { createContext, useState } from 'react'
+import { toast } from 'react-toastify'
 
 const CartContext = createContext()
 
@@ -25,8 +25,10 @@ const CartProvider = (props) => {
     const [cartItems, setCartItems] = useState([])
 
     function clearCart() {
-        setCartItems([])
-        clearedNotify()
+        if (cartLength() > 0) {
+            setCartItems([])
+            clearedNotify()
+        }
     }
 
     function isInCart(id) {
@@ -63,8 +65,27 @@ const CartProvider = (props) => {
         return isInCart(id) ? isInCart(id).quantity : 0
     }
 
+    function changeOnlyQuantity(item, quantity) {
+        setCartItems(
+            cartItems.map(cartItem => (
+                cartItem.id === item.id
+                    ? { ...cartItem, quantity: quantity }
+                    : cartItem
+            )))
+    }
+
+    function cartTotalAmount() {
+        return cartItems.map(item => item.quantity * item.price).reduce((accum, curr) => accum + curr, 0)
+    }
+
+    function buyItems() {
+        if (cartLength() > 0) {
+            console.log('Comprado!')
+        }
+    }
+
     return (
-        <CartContext.Provider value={{ cartItems, cartLength, oneItemQuantity, addItem, removeItem, clearCart }}>
+        <CartContext.Provider value={{ cartItems, cartLength, oneItemQuantity, addItem, changeOnlyQuantity, removeItem, clearCart, cartTotalAmount, buyItems }}>
             {props.children}
         </CartContext.Provider>
     )

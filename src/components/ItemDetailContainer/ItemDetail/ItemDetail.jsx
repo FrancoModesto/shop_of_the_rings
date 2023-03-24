@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import './ItemDetail.scss'
 
-import CartContext from '../../../contexts/CartContext';
+import CartContext from '../../../contexts/CartContext'
 import QuantitySelector from '../../QuantitySelector/QuantitySelector'
 
 const ItemDetail = ({ item }) => {
@@ -19,7 +19,7 @@ const ItemDetail = ({ item }) => {
 
     return (
         <div className='itemDetail'>
-            <img src={item.image} alt={item.name} />
+            <div className='itemImage'><img src={item.image} alt={item.name} /></div>
             <div className='itemInfo'>
                 <h2>{item.name}</h2>
                 <p>{item.description}</p>

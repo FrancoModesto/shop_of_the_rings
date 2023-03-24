@@ -12,7 +12,7 @@ const Navbar = () => {
                 <li><NavLink to={'/category/rings'}>Anillos</NavLink></li>
                 <li><NavLink to={'/category/other'}>Otros</NavLink></li>
             </ul>
-            <div className='logo'><Link to={'/'}><img src="./assets/logo.png" alt="Logo SOTR" /></Link></div>
+            <div className='logo'><Link to={'/'}><img src="/assets/logo.png" alt="Logo SOTR" /></Link></div>
             <div className='cartLabel'><CartWidget /></div>
         </div>
     )

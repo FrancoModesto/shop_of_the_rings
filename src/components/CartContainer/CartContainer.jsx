@@ -3,22 +3,24 @@ import React, { useContext } from 'react'
 import './CartContainer.scss'
 
 import CartContext from '../../contexts/CartContext'
+import CartItemsList from './CartItemsList/CartItemsList'
+import CartMenu from './CartMenu/CartMenu'
 
 const CartContainer = () => {
 
     const { cartItems } = useContext(CartContext)
 
     return (
-        <ul className='cartContainer'>
+        <div className='cartContainer'>
+            <h2>Carrito</h2>
             {
-                cartItems.map(item => (
-                    <li key={item.id}>
-                        <h3>{item.name}</h3>
-                        <h3>{item.quantity}</h3>
-                    </li>
-                ))
+                cartItems.length > 0 ?
+                    <CartItemsList cartItems={cartItems} />
+                    :
+                    <h3 className='empty-cart-text'>AÚN NO HAY NADA EN EL CARRITO</h3>
             }
-        </ul>
+            <CartMenu />
+        </div>
     )
 }
 

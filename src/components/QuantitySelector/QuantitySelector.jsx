@@ -4,16 +4,19 @@ import './QuantitySelector.scss'
 
 import CartContext from '../../contexts/CartContext'
 
-const QuantitySelector = ({ stock, itemId, handleQuantityChange }) => {
+const QuantitySelector = ({ isInCart, stock, itemId, handleQuantityChange }) => {
 
     const { oneItemQuantity } = useContext(CartContext)
     let actualStock = stock - oneItemQuantity(itemId)
 
-    useEffect(() => {
-        setQuantity(0)
-    }, [actualStock])
+    const [quantity, setQuantity] = useState(isInCart ? oneItemQuantity(itemId) : 0)
 
-    const [quantity, setQuantity] = useState(0)
+    useEffect(() => {
+        if (!isInCart) {
+            setQuantity(0)
+        }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [actualStock])
 
     useEffect(() => {
         handleQuantityChange(quantity)
@@ -21,17 +24,17 @@ const QuantitySelector = ({ stock, itemId, handleQuantityChange }) => {
     }, [quantity])
 
     function handleChange(event) {
-        const value = Math.min((Math.max(Number(event.target.value), 0)), actualStock)
+        const value = Math.min((Math.max(Number(event.target.value), isInCart ? 1 : 0)), isInCart ? stock : actualStock)
         setQuantity(value)
     }
 
     function handleSum() {
-        const value = Math.min((quantity + 1), actualStock)
+        const value = Math.min((quantity + 1), isInCart ? stock : actualStock)
         setQuantity(value)
     }
 
     function handleSub() {
-        const value = Math.max((quantity - 1), 0)
+        const value = Math.max((quantity - 1), isInCart ? 1 : 0)
         setQuantity(value)
     }
 

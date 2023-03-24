@@ -1,0 +1,63 @@
+@import "/src/styles/styles.scss";
+
+.cartMenu {
+    cursor: default;
+
+    width: 35em;
+    margin-top: 4em;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    row-gap: 1.5em;
+
+    background-color: $myBrown;
+    border: 2px solid $myGold;
+    border-radius: 10px;
+
+    padding: 1em;
+
+    .cartTotal {
+        text-align: center;
+        font-size: 1.2rem;
+
+        span {
+            font-size: 1.2rem;
+            color: $myGold;
+        }
+    }
+
+    .cartMenu-btns {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        .clear-btn,
+        .buy-btn {
+            cursor: pointer;
+            user-select: none;
+
+            color: $myWhite;
+            font-size: 1.2rem;
+
+            background-color: $myBrown;
+            border: 2px solid $myGold;
+            border-radius: 10px;
+            padding: 0.45em 0.5em 0.25em 0.5em; //With Font-fix.
+
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: $myGold;
+                color: $myBrown;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .cartMenu {
+        width: 18em;
+    }
+}

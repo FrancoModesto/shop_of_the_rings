@@ -49,4 +49,14 @@ body {
         background-color: $myGold;
         color: $myBrown;
     }
+
+    &.off {
+        cursor: default;
+        opacity: 0.5;
+
+        &:hover {
+            background-color: $myBrown;
+            color: $myWhite;
+        }
+    }
 }

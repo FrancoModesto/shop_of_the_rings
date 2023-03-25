@@ -37,12 +37,13 @@ const CartBuyForm = ({ handleShowForm, totalAmount, cartItems, clearCart }) => {
         }
 
         addDoc(ordersCollection, order)
-            .then(() => {
+            .then((docRef) => {
+                console.log('Document successfully added! Order ID:', docRef.id)
                 handleShowForm()
                 clearCart(true)
             })
             .catch((error) => {
-                console.log('Error adding document: ', error)
+                console.log('Error adding document:', error)
             })
     }
 

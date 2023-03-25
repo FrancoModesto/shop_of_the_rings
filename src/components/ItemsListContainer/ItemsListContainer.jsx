@@ -20,7 +20,7 @@ const ItemsListContainer = () => {
     function obtenerDocs(want) {
         getDocs(want)
             .then((snapshot) => {
-                if (snapshot === 0) {
+                if (snapshot.empty) {
                     console.log('No items found in data base.')
                 } else {
                     const rawItems = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
@@ -28,7 +28,7 @@ const ItemsListContainer = () => {
                 }
             })
             .catch((error) => {
-                console.log('Error getting documents: ', error)
+                console.log('Error getting documents:', error)
             })
     }
 

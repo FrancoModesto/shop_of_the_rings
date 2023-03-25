@@ -26,8 +26,8 @@ const CartMenu = ({ cartItems }) => {
             <div className='cartMenu'>
                 <h3 className='cartTotal'>Total: <span>{total} USD</span></h3>
                 <div className='cartMenu-btns'>
-                    <div onClick={() => clearCart(false)} className='btn'>VACIAR</div>
-                    <div onClick={(handleShowForm)} className='btn'>COMPRAR</div>
+                    <div onClick={() => clearCart(false)} className={cartItems.length > 0 ? 'btn' : 'btn off'}>VACIAR</div>
+                    <div onClick={(handleShowForm)} className={cartItems.length > 0 ? 'btn' : 'btn off'}>COMPRAR</div>
                 </div>
             </div>
             {showForm && <CartBuyForm handleShowForm={handleShowForm} cartItems={cartItems} totalAmount={total} clearCart={clearCart} />}

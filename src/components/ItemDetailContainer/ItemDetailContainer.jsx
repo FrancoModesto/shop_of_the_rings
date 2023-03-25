@@ -27,7 +27,7 @@ const ItemDetailContainer = () => {
                 }
             })
             .catch((error) => {
-                console.log('Error getting document: ', error)
+                console.log('Error getting document:', error)
             })
     }, [itemID])
 

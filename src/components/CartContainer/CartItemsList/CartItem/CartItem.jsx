@@ -27,7 +27,7 @@ const CartItem = ({ cartItem }) => {
             </div>
             <div className='cartItem-btns'>
                 <QuantitySelector isInCart={true} stock={cartItem.stock} itemId={cartItem.id} handleQuantityChange={handleQuantityChange} />
-                <div className='remove-btn' onClick={handleDelete}>X</div>
+                <div className='btn' onClick={handleDelete}>X</div>
             </div>
         </li>
     )

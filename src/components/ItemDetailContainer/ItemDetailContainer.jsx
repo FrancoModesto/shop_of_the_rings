@@ -15,18 +15,20 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setItem(null)
-
         const db = getFirestore()
         const ref = doc(db, 'items', itemID)
 
-        getDoc(ref).then((snapshot) => {
-            if (snapshot.exists()) {
-                setItem({ id: snapshot.id, ...snapshot.data() })
-            } else {
-                console.log('Item not found.')
-            }
-        })
-
+        getDoc(ref)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    setItem({ id: snapshot.id, ...snapshot.data() })
+                } else {
+                    console.log('Item not found.')
+                }
+            })
+            .catch((error) => {
+                console.log('Error getting document: ', error)
+            })
     }, [itemID])
 
     return (

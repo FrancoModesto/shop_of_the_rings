@@ -47,6 +47,10 @@ input[type="number"] {
     }
 
     input {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
         width: 70%;
         height: 100%;
 

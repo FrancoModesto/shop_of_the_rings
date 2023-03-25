@@ -18,14 +18,18 @@ const ItemsListContainer = () => {
     }
 
     function obtenerDocs(want) {
-        getDocs(want).then((snapshot) => {
-            if (snapshot === 0) {
-                console.log('No items found in data base.')
-            } else {
-                const rawItems = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-                setItems(rawItems.sort(sortByPrice))
-            }
-        })
+        getDocs(want)
+            .then((snapshot) => {
+                if (snapshot === 0) {
+                    console.log('No items found in data base.')
+                } else {
+                    const rawItems = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+                    setItems(rawItems.sort(sortByPrice))
+                }
+            })
+            .catch((error) => {
+                console.log('Error getting documents: ', error)
+            })
     }
 
     useEffect(() => {
@@ -38,7 +42,6 @@ const ItemsListContainer = () => {
                 where('category', '==', categoryID)
             )
             obtenerDocs(q)
-
         } else {
             const ref = collection(db, 'items')
             obtenerDocs(ref)

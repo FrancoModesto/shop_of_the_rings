@@ -26,7 +26,7 @@ const ItemDetail = ({ item }) => {
                 <h3>{item.price} USD</h3>
                 <div className='itemBtns'>
                     <QuantitySelector itemId={item.id} stock={item.stock} handleQuantityChange={handleQuantityChange} />
-                    <div className='buy-btn' onClick={handleAdd}>AGREGAR AL CARRITO</div>
+                    <div className='btn' onClick={handleAdd}>AGREGAR AL CARRITO</div>
                 </div>
             </div>
         </div>

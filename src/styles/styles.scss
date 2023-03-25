@@ -7,7 +7,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 
     font-size: 16px;
     line-height: 1;
@@ -24,4 +23,30 @@ body {
 ::selection {
     background-color: $myGold;
     color: $myBlack;
+}
+
+.btn {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    cursor: pointer;
+    user-select: none;
+
+    text-decoration: none;
+    text-align: center;
+    color: $myWhite;
+    font-size: 1.1rem;
+
+    background-color: $myBrown;
+    border: 2px solid $myGold;
+    border-radius: 10px;
+    padding: 0.45em 0.5em 0.25em 0.5em; //With Font-fix.
+
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: $myGold;
+        color: $myBrown;
+    }
 }

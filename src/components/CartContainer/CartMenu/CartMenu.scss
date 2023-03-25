@@ -19,6 +19,7 @@
     padding: 1em;
 
     .cartTotal {
+        padding-top: 0.2em; //Font-fix.
         text-align: center;
         font-size: 1.2rem;
 
@@ -32,27 +33,6 @@
         display: flex;
         align-items: center;
         gap: 1em;
-
-        .clear-btn,
-        .buy-btn {
-            cursor: pointer;
-            user-select: none;
-
-            color: $myWhite;
-            font-size: 1.2rem;
-
-            background-color: $myBrown;
-            border: 2px solid $myGold;
-            border-radius: 10px;
-            padding: 0.45em 0.5em 0.25em 0.5em; //With Font-fix.
-
-            transition: all 0.3s ease;
-
-            &:hover {
-                background-color: $myGold;
-                color: $myBrown;
-            }
-        }
     }
 }
 

@@ -1,33 +1,32 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
+
+//Toastify Notification
+const notify = (msg, iconPath) => {
+    toast(msg, {
+        icon: () => <img src={iconPath} alt="Toast Icon" />
+    })
+}
 
 const CartContext = createContext()
 
-const addedNotify = () => {
-    toast('AGREGADO AL CARRITO', {
-        icon: () => <img src="/assets/sum-icon.svg" alt="" />
-    })
-}
-
-const removedNotify = () => {
-    toast('ELIMINADO DEL CARRITO', {
-        icon: () => <img src="/assets/sub-icon.svg" alt="" />
-    })
-}
-
-const clearedNotify = () => {
-    toast('CARRITO VACIADO', {
-        icon: () => <img src="/assets/x-icon.svg" alt="" />
-    })
-}
-
 const CartProvider = (props) => {
-    const [cartItems, setCartItems] = useState([])
 
-    function clearCart() {
-        if (cartLength() > 0) {
+    const localCart = JSON.parse(localStorage.getItem("SOTR-Cart"))
+    const [cartItems, setCartItems] = useState(localCart ? localCart : [])
+
+    useEffect(() => {
+        localStorage.setItem("SOTR-Cart", JSON.stringify(cartItems))
+    }, [cartItems])
+
+    function clearCart(inBuy) {
+        if (cartItems.length > 0) {
             setCartItems([])
-            clearedNotify()
+            if (inBuy) {
+                notify('COMPRA REALIZADA', '/assets/done-icon.svg')
+            } else {
+                notify('CARRITO VACIADO', '/assets/x-icon.svg')
+            }
         }
     }
 
@@ -38,7 +37,7 @@ const CartProvider = (props) => {
     function removeItem(id) {
         const newCartItems = cartItems.filter(cartItem => cartItem.id !== id)
         setCartItems(newCartItems)
-        removedNotify()
+        notify('ELIMINADO DEL CARRITO', '/assets/sub-icon.svg')
     }
 
     function addItem(item, quantity) {
@@ -53,7 +52,7 @@ const CartProvider = (props) => {
             } else {
                 setCartItems([...cartItems, { ...item, quantity: quantity }])
             }
-            addedNotify()
+            notify('AGREGADO AL CARRITO', '/assets/sum-icon.svg')
         }
     }
 
@@ -78,14 +77,8 @@ const CartProvider = (props) => {
         return cartItems.map(item => item.quantity * item.price).reduce((accum, curr) => accum + curr, 0)
     }
 
-    function buyItems() {
-        if (cartLength() > 0) {
-            console.log('Comprado!')
-        }
-    }
-
     return (
-        <CartContext.Provider value={{ cartItems, cartLength, oneItemQuantity, addItem, changeOnlyQuantity, removeItem, clearCart, cartTotalAmount, buyItems }}>
+        <CartContext.Provider value={{ cartItems, cartLength, oneItemQuantity, addItem, changeOnlyQuantity, removeItem, clearCart, cartTotalAmount }}>
             {props.children}
         </CartContext.Provider>
     )

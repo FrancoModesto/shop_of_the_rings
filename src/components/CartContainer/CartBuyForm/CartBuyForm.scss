@@ -1,0 +1,124 @@
+@import "/src/styles/styles.scss";
+
+.cartBuyForm {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba($myBlack, 0.9);
+
+    form {
+        cursor: default;
+        width: 28em;
+
+        background-color: $myBrown;
+        box-shadow: 0 0 1em $myGold;
+        border: 2px solid $myGold;
+        border-radius: 10px;
+        padding: 2em;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+
+        h3 {
+            text-align: center;
+            font-family: $myTitleFont;
+            font-size: 2.5rem;
+            color: $myGold;
+        }
+
+        .formCells {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75em;
+
+            input {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+
+                width: 80%;
+                height: 1.8em;
+
+                padding: 0.2em 0.4em 0 0.4em; // With Font-fix.
+                font-size: 1.1rem;
+                color: $myBrown;
+
+                background-color: rgba($myWhite, 0.8);
+                border: 2px solid rgba($myWhite, 0);
+                border-radius: 5px;
+                box-shadow: none;
+                outline: none;
+
+                transition: all 0.3s ease;
+
+                &::placeholder {
+                    color: rgba($myBlack, 0.7);
+                }
+
+                &:hover {
+                    box-shadow: none;
+                    outline: none;
+                }
+
+                &:focus {
+                    background-color: $myWhite;
+                    border: 2px solid $myGold;
+
+                    box-shadow: none;
+                    outline: none;
+                }
+            }
+        }
+
+        h4 {
+            text-align: center;
+            font-size: 1.2rem;
+
+            span {
+                font-size: 1.2rem;
+                color: $myGold;
+            }
+        }
+
+        .formBtns {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cartBuyForm {
+        form {
+            width: 18em;
+
+            .formCells {
+                input {
+                    width: 100%;
+                }
+            }
+
+            .formBtns {
+                flex-direction: column-reverse;
+                gap: 1em;
+            }
+        }
+    }
+}

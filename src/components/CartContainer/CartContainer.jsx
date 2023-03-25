@@ -19,7 +19,7 @@ const CartContainer = () => {
                     :
                     <h3 className='empty-cart-text'>AÚN NO HAY NADA EN EL CARRITO</h3>
             }
-            <CartMenu />
+            <CartMenu cartItems={cartItems} />
         </div>
     )
 }

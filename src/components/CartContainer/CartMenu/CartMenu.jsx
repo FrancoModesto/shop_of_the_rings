@@ -24,7 +24,7 @@ const CartMenu = ({ cartItems }) => {
     return (
         <>
             <div className='cartMenu'>
-                <h3 className='cartTotal'>Total: <span>{total} USD</span></h3>
+                <h3>Total: <span>{total} USD</span></h3>
                 <div className='cartMenu-btns'>
                     <div onClick={() => clearCart(false)} className={cartItems.length > 0 ? 'btn' : 'btn off'}>VACIAR</div>
                     <div onClick={(handleShowForm)} className={cartItems.length > 0 ? 'btn' : 'btn off'}>COMPRAR</div>

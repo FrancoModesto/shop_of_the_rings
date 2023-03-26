@@ -58,12 +58,12 @@ const CartBuyForm = ({ handleShowForm, totalAmount, cartItems, clearCart }) => {
     return (
         <div className='cartBuyForm'>
             <form onSubmit={handleSubmit}>
-                <h3>Datos del Comprador</h3>
+                <h2>Datos del Comprador</h2>
                 <div className='formCells'>
                     <input onChange={handleNameChange} value={nameValue} type="text" name='name' placeholder='Nombre' title='' required autoComplete="off" />
                     <input onChange={handleEmailChange} value={emailValue} type="email" name='email' placeholder='Email' title='' required autoComplete="off" />
                 </div>
-                <h4 className='cartTotal'>Total: <span>{totalAmount} USD</span></h4>
+                <h3>Total: <span>{totalAmount} USD</span></h3>
                 <div className='formBtns'>
                     <div className='btn' onClick={handleShowForm}>CANCELAR</div>
                     <input className='btn' type="submit" value="COMPRAR" />

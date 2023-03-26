@@ -51,7 +51,7 @@ const ItemsListContainer = () => {
 
     return (
         <div className='itemsListContainer'>
-            {categoryID ? <h2>{categoryID === 'rings' ? 'Anillos' : 'Otros'}</h2> : <h2>Productos de Tierra Media</h2>}
+            {categoryID ? <h1>{categoryID === 'rings' ? 'Anillos' : 'Otros'}</h1> : <h1>Productos de Tierra Media</h1>}
             {items ? <ItemsList items={items} /> : <Loader />}
         </div>
     )

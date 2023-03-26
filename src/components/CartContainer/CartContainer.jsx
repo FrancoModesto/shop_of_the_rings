@@ -12,12 +12,12 @@ const CartContainer = () => {
 
     return (
         <div className='cartContainer'>
-            <h2>Carrito</h2>
+            <h1>Carrito</h1>
             {
                 cartItems.length > 0 ?
                     <CartItemsList cartItems={cartItems} />
                     :
-                    <h3 className='empty-cart-text'>AÚN NO HAY NADA EN EL CARRITO</h3>
+                    <h2 className='empty-cart-text'>AÚN NO HAY NADA EN EL CARRITO</h2>
             }
             <CartMenu cartItems={cartItems} />
         </div>

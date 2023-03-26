@@ -22,8 +22,8 @@ const CartItem = ({ cartItem }) => {
         <li className='cartItem'>
             <div className='cartItem-info'>
                 <Link to={`/item/${cartItem.id}`} className='cartItem-image'><img src={cartItem.image} alt={cartItem.name} /></Link>
-                <h3>{cartItem.name}</h3>
-                <h4>{cartItem.price} USD</h4>
+                <h2>{cartItem.name}</h2>
+                <h3>{cartItem.price} USD</h3>
             </div>
             <div className='cartItem-btns'>
                 <QuantitySelector isInCart={true} stock={cartItem.stock} itemId={cartItem.id} handleQuantityChange={handleQuantityChange} />

@@ -12,6 +12,7 @@ import Navbar from './components/Navbar/Navbar'
 import ItemsListContainer from './components/ItemsListContainer/ItemsListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import CartContainer from './components/CartContainer/CartContainer'
+import NotFound from './components/NotFound/NotFound'
 
 //Firebase
 import { initializeApp } from "firebase/app"
@@ -50,9 +51,10 @@ root.render(
         <Navbar />
         <Routes>
           <Route exact path='/' element={<ItemsListContainer />} />
-          <Route exact path='/category/:categoryID' element={<ItemsListContainer />} />
-          <Route exact path='/item/:itemID' element={<ItemDetailContainer />} />
+          <Route path='/category/:categoryID' element={<ItemsListContainer />} />
+          <Route path='/item/:itemID' element={<ItemDetailContainer />} />
           <Route exact path='/cart' element={<CartContainer />} />
+          <Route path='/*' element={<NotFound />} />
         </Routes>
       </CartProvider>
     </BrowserRouter>

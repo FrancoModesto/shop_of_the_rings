@@ -1,6 +1,7 @@
 @import "/src/styles/styles.scss";
 
-.cartContainer {
+.notFound {
+    cursor: default;
     margin: 4em 0;
 
     display: flex;
@@ -8,9 +9,7 @@
     align-items: center;
 
     h1 {
-        cursor: default;
-        margin-bottom: 0.75em;
-        padding: 0 0.25em;
+        margin-bottom: 0.2em;
 
         text-align: center;
         font-family: $myTitleFont;
@@ -18,11 +17,19 @@
         color: $myGold;
     }
 
-    .empty-cart-text {
-        cursor: default;
+    h2 {
+        margin-bottom: 1em;
+        padding: 0 0.5em;
+
+        text-align: center;
+        font-size: 2.5rem;
+        color: $myGold;
+    }
+
+    p {
         padding: 0 1em;
 
         text-align: center;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 }
